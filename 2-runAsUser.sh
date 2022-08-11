@@ -7,5 +7,5 @@ cat extracted/completeLog.txt | grep "Invalid user" > extracted/invalidUserLogs.
 cat extracted/completeLog.txt | grep "Failed password for" > extracted/failedPasswordAttempts.txt
 
 # extract unique IPs and usernames
-python3 helperStripts/stripUniqueIPs.py
-python3 helperStripts/stripUniqueUsernames.py
+python3 helperScripts/stripUniqueIPs.py
+python3 helperScripts/stripUniqueUsernames.py
