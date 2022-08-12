@@ -1,4 +1,4 @@
-completeLog = open("extracted/invalidUsers.txt", "r").readlines()
+completeLog = open("extracted/invalidUserLogs.txt", "r").readlines()
 
 usernames = []
 output = open("extracted/uniqueUsernames.txt", "w")
