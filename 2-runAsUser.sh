@@ -1,4 +1,6 @@
 # First, lets extract all relevant lines from log
+mkdir extracted
+
 gunzip rawLogs/*.gz
 
 cat rawLogs/* > extracted/completeLog.txt
