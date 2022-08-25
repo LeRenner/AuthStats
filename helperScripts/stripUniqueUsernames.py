@@ -5,9 +5,8 @@ completeLog = open("extracted/invalidUserLogs.txt", "r").readlines()
 
 usernames = []
 output = open("extracted/uniqueUsernames.txt", "w")
-
-print("Processing...")
 index = 0
+
 
 for linha in completeLog:
 
@@ -23,5 +22,6 @@ for linha in completeLog:
     output.write(user + "\n")
 
   index += 1
+
 
 print("\rProgress - Done!")

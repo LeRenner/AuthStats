@@ -5,9 +5,8 @@ completeLog = open("extracted/failedPasswordAttempts.txt", "r").readlines()
 
 ips = []
 output = open("extracted/uniqueIPs.txt", "w")
-
-print("Processing...")
 index = 0
+
 
 for linha in completeLog:
 
@@ -26,5 +25,6 @@ for linha in completeLog:
     output.write(ip + "\n")
 
   index += 1
+
 
 print("\rProgress - Done!")
