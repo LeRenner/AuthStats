@@ -15,6 +15,9 @@ for linha in completeLog:
     sys.stdout.write("\rProgress - %s%%" % str(round(100 * index/len(completeLog), 2)))
     sys.stdout.flush()
 
+  # consider empty username case
+  if "user  " in linha: continue
+
   user = linha.split()[7]
 
   if user not in usernames:

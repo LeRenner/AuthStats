@@ -20,6 +20,9 @@ for linha in completeLog:
   if   splitLine[9] == "user": ip = splitLine[12]
   elif splitLine[9] == "from": ip = splitLine[10]
 
+  # Consider empty username
+  if "user  from" in linha: ip = splitLine[11]
+
   if ip not in ips:
     ips.append(ip)
     output.write(ip + "\n")
