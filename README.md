@@ -27,4 +27,4 @@ This script extracts all unique usernames and origin IPs from failed login attem
 
 ### 3-queryCountries.sh
 
-This script queries the countries of origin from the IP addresses, and created a file in the `extracted` folder with the number of IPs from each country.
+This script queries the countries of origin from the IP addresses, and creates a file in the `extracted` folder with the number of IPs from each country.
