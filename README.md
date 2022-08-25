@@ -17,7 +17,9 @@ This repository contains 3 scripts. Here's a breakdown of their purposes
 
 ### 1-requiresSudo.sh
 
-This script should be run as your user and requires sudo permission. It creates a folder called `extracted`, copies all authentication logs to it, and changes their permission to be accessible to your user. 
+This script should be run as your user and requires sudo permission. It creates a folder called `extracted`, copies all authentication logs to it, and changes their permission to be accessible to your user.
+
+If you would rather do this step manually, just create a folder called `extracted` in the root of this repository, and copy all auth*.log files from (usually) the `/var/log/` directory into it. Then just change the permissions so these files are accessible for your user.
 
 ### 2-stripIPsAndUsernames.sh
 
