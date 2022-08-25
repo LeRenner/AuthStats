@@ -1,6 +1,7 @@
 import sys
 import iptocc
 import logging
+import json
 
 index = 0
 ips = open("extracted/uniqueIPs.txt", "r").readlines()
@@ -26,3 +27,16 @@ for ip in ips:
 
   countries[originCountry] += 1
   index += 1
+
+
+
+print("\rProgress - Done!")
+
+sorted = dict(sorted(countries.items(), reverse=True))
+output = open("extracted/countryStats.json", "w")
+
+jsonOutput = json.dumps(sorted, indent = 4)
+output.write(jsonOutput)
+
+for key in sorted:
+  print("Number of IPs from", key, "-", countries[key])
