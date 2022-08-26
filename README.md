@@ -19,12 +19,18 @@ This repository contains 3 scripts. Here's a breakdown of their purposes
 
 This script should be run as your user and requires sudo permission. It creates a folder called `extracted`, copies all authentication logs to it, and changes their permission to be accessible to your user.
 
+    $ bash 1-requiresSudo.sh
+
 If you would rather do this step manually, just create a folder called `extracted` in the root of this repository, and copy all `auth*.log` files from (usually) the `/var/log/` directory into it. Then just change the permissions so these files are accessible for your user.
 
 ### 2-stripIPsAndUsernames.sh
 
 This script extracts all unique usernames and origin IPs from failed login attempts. Files are created in the extracted directory.
 
+    $ bash 2-stripIPsAndUsernames.sh
+
 ### 3-queryCountries.sh
 
 This script queries the countries of origin from the IP addresses, and creates a file in the `extracted` folder with the number of IPs from each country.
+
+    $ bash 3-queryCountries.sh
