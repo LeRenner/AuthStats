@@ -2,10 +2,9 @@ import sys
 import iptocc
 import logging
 import json
-from math import isnan
 
 index = 0
-ips = open("extracted/uniqueIPs.txt", "r").readlines()
+ips = open("extracted/uniqueIPs.txt", "r", encoding="utf-8").readlines()
 countries = {"NaN": 0}
 logger = logging.getLogger("iptocc")
 logger.propagate = False
@@ -18,39 +17,40 @@ print("Querying IP addresses...")
 
 for ip in ips:
 
-  # update progress every 5 IPs
-  if index % 5 == 0:
-    sys.stdout.write("\rProgress - %s%%" % str(round(100 * index/len(ips), 2)))
-    sys.stdout.flush()
+    # update progress every 5 IPs
+    if index % 5 == 0:
+        sys.stdout.write(f"\rProgress - {round(100 * index/len(ips), 2)}")
+        sys.stdout.flush()
 
-  # Handle invalid IP address
-  try: originCountry = iptocc.get_country_code(ip[:-1])
-  except: print("Error parsing " + ip + ". Skipping.")
+    # Handle invalid IP address
+    originCountry = 0
+    try:
+        originCountry = iptocc.get_country_code(ip[:-1])
+    except:
+        print(f"Country code not found for {ip[:-1]}.")
 
-  # Handle country not found
-  if type(originCountry) != type("A"):
-    countries["NaN"] += 1
-    continue
+    # Handle country not found
+    if not isinstance(originCountry, str):
+        countries["NaN"] += 1
+        continue
 
-  if originCountry not in countries:
-    countries[originCountry] = 1
-    continue
+    if originCountry not in countries:
+        countries[originCountry] = 1
+        continue
 
-  countries[originCountry] += 1
-  index += 1
-
-
+    countries[originCountry] += 1
+    index += 1
 
 print("\rProgress - Done!")
 
-# Sort countries by order of appearence
-sorted = dict(sorted(countries.items(), reverse=True))
-output = open("extracted/countryStats.json", "w")
+# Sort countries by order of appearance
+sorted_dict = dict(sorted(countries.items(), reverse=True))
+output = open("extracted/countryStats.json", "w", encoding="utf-8")
 
 # Save json output
-jsonOutput = json.dumps(sorted, indent = 4)
+jsonOutput = json.dumps(sorted_dict, indent=4)
 output.write(jsonOutput)
 
 # Print results on screen
-for key in sorted:
-  print("Number of IPs from", key, "-", countries[key])
+for key in sorted_dict:
+    print(f"Number of IPs from {key} - {countries[key]}")
