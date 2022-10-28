@@ -1,5 +1,6 @@
 # First, lets extract all relevant lines from log
 mkdir extracted
+chmod 600 extracted
 
 echo "Unpacking logs..."
 gunzip rawLogs/*.gz
