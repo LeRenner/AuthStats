@@ -5,6 +5,8 @@ import iptocc
 import logging
 import json
 
+print("There may appear a \"FutureWarning\" error, but you can safely ignore it.")
+
 index = 0
 ips = open("extracted/uniqueIPs.txt", "r", encoding="utf-8").readlines()
 countries = {"NaN": 0}
