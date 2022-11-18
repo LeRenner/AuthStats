@@ -1,0 +1,66 @@
+* {
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    max-width: 1200px;
+}
+
+body {
+    background-color: #f2f2f2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+}
+
+header img {
+    max-width: 15%;
+}
+
+header span {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+header span p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+body div {
+    width: 100%;
+}
+
+table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    width: 50%;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.NaN {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#NaN {
+    font-size: 1.25em;
+    font-weight: bold;
+}
